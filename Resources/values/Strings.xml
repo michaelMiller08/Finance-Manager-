@@ -1,4 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">FinanceManager</string>
+    <string name="app_name">Finance Manager</string>
+    <string name="create_bill_title">Add New Bill</string>
 </resources>
