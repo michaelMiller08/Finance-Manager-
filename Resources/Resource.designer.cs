@@ -886,44 +886,44 @@ namespace FinanceManager
 		public partial class Color
 		{
 			
-			// aapt resource value: 0x7f09003e
-			public const int abc_background_cache_hint_selector_material_dark = 2131296318;
-			
-			// aapt resource value: 0x7f09003f
-			public const int abc_background_cache_hint_selector_material_light = 2131296319;
-			
 			// aapt resource value: 0x7f090040
-			public const int abc_btn_colored_borderless_text_material = 2131296320;
+			public const int abc_background_cache_hint_selector_material_dark = 2131296320;
 			
 			// aapt resource value: 0x7f090041
-			public const int abc_btn_colored_text_material = 2131296321;
+			public const int abc_background_cache_hint_selector_material_light = 2131296321;
 			
 			// aapt resource value: 0x7f090042
-			public const int abc_color_highlight_material = 2131296322;
+			public const int abc_btn_colored_borderless_text_material = 2131296322;
 			
 			// aapt resource value: 0x7f090043
-			public const int abc_hint_foreground_material_dark = 2131296323;
+			public const int abc_btn_colored_text_material = 2131296323;
 			
 			// aapt resource value: 0x7f090044
-			public const int abc_hint_foreground_material_light = 2131296324;
+			public const int abc_color_highlight_material = 2131296324;
+			
+			// aapt resource value: 0x7f090045
+			public const int abc_hint_foreground_material_dark = 2131296325;
+			
+			// aapt resource value: 0x7f090046
+			public const int abc_hint_foreground_material_light = 2131296326;
 			
 			// aapt resource value: 0x7f090000
 			public const int abc_input_method_navigation_guard = 2131296256;
 			
-			// aapt resource value: 0x7f090045
-			public const int abc_primary_text_disable_only_material_dark = 2131296325;
-			
-			// aapt resource value: 0x7f090046
-			public const int abc_primary_text_disable_only_material_light = 2131296326;
-			
 			// aapt resource value: 0x7f090047
-			public const int abc_primary_text_material_dark = 2131296327;
+			public const int abc_primary_text_disable_only_material_dark = 2131296327;
 			
 			// aapt resource value: 0x7f090048
-			public const int abc_primary_text_material_light = 2131296328;
+			public const int abc_primary_text_disable_only_material_light = 2131296328;
 			
 			// aapt resource value: 0x7f090049
-			public const int abc_search_url_text = 2131296329;
+			public const int abc_primary_text_material_dark = 2131296329;
+			
+			// aapt resource value: 0x7f09004a
+			public const int abc_primary_text_material_light = 2131296330;
+			
+			// aapt resource value: 0x7f09004b
+			public const int abc_search_url_text = 2131296331;
 			
 			// aapt resource value: 0x7f090001
 			public const int abc_search_url_text_normal = 2131296257;
@@ -934,29 +934,29 @@ namespace FinanceManager
 			// aapt resource value: 0x7f090003
 			public const int abc_search_url_text_selected = 2131296259;
 			
-			// aapt resource value: 0x7f09004a
-			public const int abc_secondary_text_material_dark = 2131296330;
-			
-			// aapt resource value: 0x7f09004b
-			public const int abc_secondary_text_material_light = 2131296331;
-			
 			// aapt resource value: 0x7f09004c
-			public const int abc_tint_btn_checkable = 2131296332;
+			public const int abc_secondary_text_material_dark = 2131296332;
 			
 			// aapt resource value: 0x7f09004d
-			public const int abc_tint_default = 2131296333;
+			public const int abc_secondary_text_material_light = 2131296333;
 			
 			// aapt resource value: 0x7f09004e
-			public const int abc_tint_edittext = 2131296334;
+			public const int abc_tint_btn_checkable = 2131296334;
 			
 			// aapt resource value: 0x7f09004f
-			public const int abc_tint_seek_thumb = 2131296335;
+			public const int abc_tint_default = 2131296335;
 			
 			// aapt resource value: 0x7f090050
-			public const int abc_tint_spinner = 2131296336;
+			public const int abc_tint_edittext = 2131296336;
 			
 			// aapt resource value: 0x7f090051
-			public const int abc_tint_switch_track = 2131296337;
+			public const int abc_tint_seek_thumb = 2131296337;
+			
+			// aapt resource value: 0x7f090052
+			public const int abc_tint_spinner = 2131296338;
+			
+			// aapt resource value: 0x7f090053
+			public const int abc_tint_switch_track = 2131296339;
 			
 			// aapt resource value: 0x7f090004
 			public const int accent_material_dark = 2131296260;
@@ -1072,6 +1072,12 @@ namespace FinanceManager
 			// aapt resource value: 0x7f09003b
 			public const int notification_material_background_media_default_color = 2131296315;
 			
+			// aapt resource value: 0x7f09003e
+			public const int primary = 2131296318;
+			
+			// aapt resource value: 0x7f09003f
+			public const int primaryText = 2131296319;
+			
 			// aapt resource value: 0x7f090027
 			public const int primary_dark_material_dark = 2131296295;
 			
@@ -1120,11 +1126,11 @@ namespace FinanceManager
 			// aapt resource value: 0x7f090036
 			public const int switch_thumb_disabled_material_light = 2131296310;
 			
-			// aapt resource value: 0x7f090052
-			public const int switch_thumb_material_dark = 2131296338;
+			// aapt resource value: 0x7f090054
+			public const int switch_thumb_material_dark = 2131296340;
 			
-			// aapt resource value: 0x7f090053
-			public const int switch_thumb_material_light = 2131296339;
+			// aapt resource value: 0x7f090055
+			public const int switch_thumb_material_light = 2131296341;
 			
 			// aapt resource value: 0x7f090037
 			public const int switch_thumb_normal_material_dark = 2131296311;
@@ -2959,6 +2965,9 @@ namespace FinanceManager
 			
 			// aapt resource value: 0x7f07007e
 			public const int Base_Widget_AppCompat_Toolbar_Button_Navigation = 2131165310;
+			
+			// aapt resource value: 0x7f070162
+			public const int MyCustomThemeToolbar = 2131165538;
 			
 			// aapt resource value: 0x7f07001e
 			public const int Platform_AppCompat = 2131165214;

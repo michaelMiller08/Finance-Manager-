@@ -1,10 +1,11 @@
 ﻿using Android.App;
 using Android.OS;
+using Android.Support.V7.App;
 
 namespace FinanceManager
 {
-    [Activity(Label = "FinanceManager", MainLauncher = true)]
-    public class MainActivity : Activity
+    [Activity(Label = "Finance Manager", MainLauncher = true)]
+    public class MainActivity : AppCompatActivity
     {
         protected override void OnCreate(Bundle savedInstanceState)
         {
