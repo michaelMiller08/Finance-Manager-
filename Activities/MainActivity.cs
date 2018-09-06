@@ -27,7 +27,7 @@ namespace FinanceManager
 
             foreach (var bill in basket.GetAllBills())
             {
-                billsPlaceHolder.Text += string.Format($" Name: {bill.Name} \n Description: {bill.Description} \n Frequency: {bill.Occurrence} \n \n");
+                billsPlaceHolder.Text += string.Format($" Name: {bill.Name} \n Description: {bill.Description} \n Cost: {bill.Cost} \n Frequency: {bill.Occurrence} \n \n");
             }
         }
 

@@ -2,4 +2,6 @@
 <resources>
 <color name="primary">#59A4DB</color>
 <color name="primaryText">#FFFFFF</color>
+<color name="primaryButton">#59DBD1</color>
+<color name="backgroundTint">#FFFFFF</color>
 </resources>

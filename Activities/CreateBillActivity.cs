@@ -60,6 +60,8 @@ namespace FinanceManager.Activities
 
             var basket = App.Container.Resolve<IBillRepository>();
             basket.AddBill(_billName, _billDescription, _billCost, _billOccurence);
+
+            DisplayToast(string.Format($"{_billName} has been added!"));
         }
     }
 }
