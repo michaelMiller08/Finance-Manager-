@@ -1,9 +1,9 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     android:background="@color/primary">
     <android.support.v7.widget.Toolbar
         android:id="@+id/toolbarActivityCreateBill"
@@ -11,48 +11,76 @@
         android:background="?attr/colorAccent"
         android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
-    <RelativeLayout
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content">
-        <ScrollView
-            android:id="@+id/create_bill_scroll_view"
+        android:layout_height="wrap_content" 
+        android:elevation="4dp"/>
+    <ScrollView       
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingTop="?android:attr/actionBarSize"
+        android:id="@+id/create_bill_scroll_view">
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-            <RelativeLayout
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <TextView
+                android:text="Bill Name:"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:minWidth="25px"
-                android:minHeight="25px">
-                <EditText
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/name_input"
-                    android:layout_below="@id/toolbarActivityCreateBill" />
-                <EditText
-                    android:inputType="textMultiLine"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/description_input"
-                    android:layout_below="@id/name_input" />
-                <EditText
-                    android:inputType="number"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/cost_input"
-                    android:layout_below="@id/description_input" />
-                <Spinner
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/occurence_spinner"
-                    android:layout_below="@id/cost_input" />
-            </RelativeLayout>
-        </ScrollView>
-    </RelativeLayout>
-    <Button
-        android:text="Button"
+                android:layout_height="wrap_content"
+                android:textColor="@color/primaryText"/>
+            <EditText
+                android:inputType="text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/name_input"
+                android:backgroundTint="@color/backgroundTint"/>
+            <TextView
+                android:text="Description:"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/primaryText"/>
+            <EditText
+                android:inputType="textMultiLine"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/description_input"
+                android:backgroundTint="@color/backgroundTint"/>
+            <TextView
+                android:text="Cost:"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/backgroundTint"/>
+            <EditText
+                android:inputType="number"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/cost_input"
+                android:backgroundTint="@color/backgroundTint"/>
+            <TextView
+                android:text="Frequency:"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/primaryText"/>
+            <Spinner
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/occurence_spinner"/>
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/backgroundTint"/>
+        </LinearLayout>
+    </ScrollView>
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/add_bill_btn"
-        android:layout_gravity="bottom"/>
-</LinearLayout>
+        android:layout_alignParentBottom="true"
+        android:orientation="vertical">
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/primaryButton"
+            android:text="Add Bill"
+            android:id="@+id/add_bill_btn"
+        android:textColor="@color/primaryText"/>
+    </LinearLayout>
+</RelativeLayout>

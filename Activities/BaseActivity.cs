@@ -1,5 +1,6 @@
 ﻿using Toolbar = Android.Support.V7.Widget.Toolbar;
 using Android.Support.V7.App;
+using Android.Widget;
 
 namespace FinanceManager.Activities
 {
@@ -22,6 +23,11 @@ namespace FinanceManager.Activities
                 alertDialog.SetNeutralButton("OK", delegate { });
                 alertDialog.Show();
             }
+        }
+
+        public void DisplayToast(string toastMessage)
+        {
+            Toast.MakeText(this,toastMessage,ToastLength.Short).Show();
         }
     }
 }
