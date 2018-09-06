@@ -2,4 +2,13 @@
 <resources>
     <string name="app_name">Finance Manager</string>
     <string name="create_bill_title">Add New Bill</string>
+    
+    <string-array name="CostOccurences">
+        <item>Daily</item>
+        <item>Weekly</item>
+        <item>Bi-Weekly</item>
+        <item>Monthly</item>
+        <item>Quarterly</item>
+        <item>Annually</item>
+    </string-array>
 </resources>

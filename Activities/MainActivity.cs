@@ -4,6 +4,9 @@ using Android.Views;
 using Toolbar = Android.Support.V7.Widget.Toolbar;
 using Android.Content;
 using FinanceManager.Activities;
+using Android.Widget;
+using FinanceManager.ViewModels;
+using Autofac;
 
 namespace FinanceManager
 {
@@ -18,14 +21,20 @@ namespace FinanceManager
 
             var toolbar = FindViewById<Toolbar>(Resource.Id.toolbarActivityMain);
             SetupToolbar(toolbar: toolbar, title: Resource.String.app_name);
+
+            var basket = App.Container.Resolve<IBillRepository>();
+            var billsPlaceHolder = FindViewById<TextView>(Resource.Id.bills_placeholder);
+
+            foreach (var bill in basket.GetAllBills())
+            {
+                billsPlaceHolder.Text += string.Format($" Name: {bill.Name} \n Description: {bill.Description} \n Frequency: {bill.Occurrence} \n \n");
+            }
         }
 
         public override bool OnOptionsItemSelected(IMenuItem item)
         {
             if (item.ItemId == Resource.Id.menu_add_new_bill)
             {
-                //var intent = new Intent(this, typeof(CreateBillActivity));
-                //StartActivity(intent);
                 StartActivity(new Intent(this, typeof(CreateBillActivity)));
             }
             else

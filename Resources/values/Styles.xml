@@ -4,7 +4,7 @@
   <style name="MyTheme.Base" parent="Theme.AppCompat.Light.DarkActionBar">
     <item name="windowNoTitle">true</item>
     <item name="windowActionBar">false</item>
-    <item name="colorPrimary">#59DB90</item>
+    <item name="colorPrimary">#59A4DB</item>
     <item name="colorAccent">#9059DB</item>
   </style>
 </resources>
