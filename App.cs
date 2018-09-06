@@ -1,7 +1,7 @@
 ﻿using Autofac;
 using FinanceManager.ViewModels;
 
-namespace FinanceManager.Application
+namespace FinanceManager
 {
     public static class App
     {

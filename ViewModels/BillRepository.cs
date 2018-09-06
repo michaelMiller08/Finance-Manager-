@@ -10,7 +10,7 @@ namespace FinanceManager.ViewModels
     {
         List<Bill> _bills = new List<Bill>();
 
-        public void AddBill(string name, string description, int price, BillOccurrence billOccurance, int id)
+        public void AddBill(string name, string description, string cost, string billOccurance)
         {
             var random = new Random();
             var randomId = random.Next();
@@ -19,15 +19,18 @@ namespace FinanceManager.ViewModels
             {
                 Name = name,
                 Description = description,
-                Price = price,
+                Cost = cost,
                 Occurrence = billOccurance,
                 Id = randomId
             };
 
-            _bills.Add(bill);
+            if (!_bills.Contains(bill))
+            {
+                _bills.Add(bill);
+            }
         }
 
-        public IEnumerable GetAllBills()
+        public IEnumerable<Bill> GetAllBills()
         {
             return _bills;
         }

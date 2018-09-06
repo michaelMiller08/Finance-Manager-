@@ -1,15 +1,14 @@
-﻿using System;
-using System.Collections;
+﻿using System.Collections.Generic;
 using FinanceManager.Models;
 
 namespace FinanceManager.ViewModels
 {
     public interface IBillRepository
     {
-        void AddBill(string name, string description, int price, BillOccurrence billoccurance, int id);
+        void AddBill(string name, string description, string cost, string billoccurance);
 
         void RemoveBill(int id);
 
-        IEnumerable GetAllBills();
+        IEnumerable<Bill> GetAllBills();
     }
 }

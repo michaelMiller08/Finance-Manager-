@@ -5,8 +5,8 @@ namespace FinanceManager.Models
     {
         public string Name { get; set; }
         public string Description { get; set; }
-        public int Price { get; set; }
-        public Enum Occurrence { get; set; }
+        public string Cost { get; set; }
+        public string Occurrence { get; set; }
         public int Id { get; set; }
     }
 }
