@@ -77,22 +77,6 @@ namespace FinanceManager
 			}
 		}
 		
-		public partial class Array
-		{
-			
-			// aapt resource value: 0x7f0c0000
-			public const int CostOccurences = 2131492864;
-			
-			static Array()
-			{
-				global::Android.Runtime.ResourceIdManager.UpdateIdValues();
-			}
-			
-			private Array()
-			{
-			}
-		}
-		
 		public partial class Attribute
 		{
 			
@@ -2432,8 +2416,8 @@ namespace FinanceManager
 		public partial class Menu
 		{
 			
-			// aapt resource value: 0x7f0d0000
-			public const int menu_items = 2131558400;
+			// aapt resource value: 0x7f0c0000
+			public const int menu_items = 2131492864;
 			
 			static Menu()
 			{

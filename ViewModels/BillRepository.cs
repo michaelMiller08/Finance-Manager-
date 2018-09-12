@@ -8,12 +8,11 @@ namespace FinanceManager.ViewModels
 {
     public class BillRepository : IBillRepository
     {
-        List<Bill> _bills = new List<Bill>();
+       readonly List<Bill> _bills = new List<Bill>();
 
-        public void AddBill(string name, string description, string cost, string billOccurance)
+        public void AddBill(string name, string description, float cost, string billOccurance)
         {
-            var random = new Random();
-            var randomId = random.Next();
+            var randomId = new Random().Next();
 
             var bill = new Bill
             {
@@ -24,10 +23,17 @@ namespace FinanceManager.ViewModels
                 Id = randomId
             };
 
-            if (!_bills.Contains(bill))
+            if (!_bills.Contains(bill) && bill != null)
             {
                 _bills.Add(bill);
             }
+        }
+
+        public bool CheckBillExists(int id)
+        {
+            var requestedBill = _bills.First(p => p.Id == id);
+
+            return _bills.Contains(requestedBill);
         }
 
         public IEnumerable<Bill> GetAllBills()

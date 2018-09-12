@@ -11,38 +11,41 @@ namespace FinanceManager.Activities
     [Activity(Label = "CreateBillActivity")]
     public class CreateBillActivity : BaseActivity
     {
-        string _billName;
-        string _billDescription;
-        string _billCost;
         string _billOccurence;
         string[] _costOccurences;
 
+        EditText _billNameField, _billDescriptionField, _billCostField;
+        Spinner _occurenceSpinner;
+        
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
 
             SetContentView(Resource.Layout.activity_create_bill);
 
+            InitilizeFields();
+
             var toolbar = FindViewById<Toolbar>(Resource.Id.toolbarActivityCreateBill);
             SetupToolbar(toolbar: toolbar, title: Resource.String.create_bill_title, homeEnabled: true, displayAsHome: true);
 
-            var occurenceSpinner = FindViewById<Spinner>(Resource.Id.occurence_spinner);
-            occurenceSpinner.ItemSelected += OccurenceSpinner_ItemSelected;
-
-            _costOccurences = new string[]{ "Daily", "Weekly", "Bi-Monthly", "Monthly", "Quarterly", "Annually" };
+            _occurenceSpinner.ItemSelected += OccurenceSpinner_ItemSelected;
             
             var spinnerAdapter = new ArrayAdapter<string>(this, Android.Resource.Layout.SimpleSpinnerItem, _costOccurences);
             spinnerAdapter.SetDropDownViewResource(Android.Resource.Layout.SimpleSpinnerDropDownItem);
-            occurenceSpinner.Adapter = spinnerAdapter;
+            _occurenceSpinner.Adapter = spinnerAdapter;
 
             FindViewById<Button>(Resource.Id.add_bill_btn).Click += CreateBillBtn_Click;
         }
 
         public override bool OnSupportNavigateUp()
         {
-            //OnBackPressed();
-            StartActivity(new Intent(this, typeof(MainActivity)));
+            OnBackPressed();
             return true;
+        }
+
+        public override void OnBackPressed()
+        {
+            StartActivity(new Intent(this, typeof(MainActivity)));
         }
 
         void OccurenceSpinner_ItemSelected(object sender, AdapterView.ItemSelectedEventArgs e)
@@ -54,14 +57,48 @@ namespace FinanceManager.Activities
 
         void CreateBillBtn_Click(object sender, System.EventArgs e)
         {
-            _billName = FindViewById<EditText>(Resource.Id.name_input).Text;
-            _billDescription = FindViewById<EditText>(Resource.Id.description_input).Text;
-            _billCost = FindViewById<EditText>(Resource.Id.cost_input).Text;
+            if (InputFieldsValidationFailureStatus() == false)
+            {
+                var billRepository = App.Container.Resolve<IBillRepository>();
+                billRepository.AddBill(_billNameField.Text, _billDescriptionField.Text, float.Parse(_billCostField.Text), _billOccurence);
 
-            var basket = App.Container.Resolve<IBillRepository>();
-            basket.AddBill(_billName, _billDescription, _billCost, _billOccurence);
+                DisplayToast(string.Format($"{_billNameField.Text} has been added!"));
+            }
+        }
 
-            DisplayToast(string.Format($"{_billName} has been added!"));
+        void InitilizeFields()
+        {
+            _costOccurences = new string[] { "Daily", "Weekly", "Bi-Monthly", "Monthly", "Quarterly", "Annually" };
+
+            _billNameField = FindViewById<EditText>(Resource.Id.name_input);
+            _billDescriptionField = FindViewById<EditText>(Resource.Id.description_input);
+            _billCostField = FindViewById<EditText>(Resource.Id.cost_input);
+            _occurenceSpinner = FindViewById<Spinner>(Resource.Id.occurence_spinner);
+        }
+
+        bool InputFieldsValidationFailureStatus()
+        {
+            bool AllFieldsInputValidationFailureStatus = false;
+
+            if (string.IsNullOrEmpty(_billNameField.Text))
+            {
+                _billNameField.SetError("Username cannot be blank ...", null);
+                AllFieldsInputValidationFailureStatus = true;
+            }
+
+            if (string.IsNullOrEmpty(_billDescriptionField.Text))
+            {
+                _billDescriptionField.SetError("Description cannot be blank ...", null);
+                AllFieldsInputValidationFailureStatus = true;
+            }
+
+            if (string.IsNullOrEmpty(_billCostField.Text))
+            {
+                _billCostField.SetError("Cost cannot be blank ...", null);
+                AllFieldsInputValidationFailureStatus = true;
+            }
+
+            return AllFieldsInputValidationFailureStatus;
         }
     }
 }

@@ -22,10 +22,10 @@ namespace FinanceManager
             var toolbar = FindViewById<Toolbar>(Resource.Id.toolbarActivityMain);
             SetupToolbar(toolbar: toolbar, title: Resource.String.app_name);
 
-            var basket = App.Container.Resolve<IBillRepository>();
             var billsPlaceHolder = FindViewById<TextView>(Resource.Id.bills_placeholder);
 
-            foreach (var bill in basket.GetAllBills())
+            var billRepository = App.Container.Resolve<IBillRepository>();
+            foreach (var bill in billRepository.GetAllBills())
             {
                 billsPlaceHolder.Text += string.Format($" Name: {bill.Name} \n Description: {bill.Description} \n Cost: {bill.Cost} \n Frequency: {bill.Occurrence} \n \n");
             }
