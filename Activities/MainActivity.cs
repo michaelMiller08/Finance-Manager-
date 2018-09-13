@@ -1,12 +1,12 @@
 ﻿using Android.App;
+using Android.Content;
 using Android.OS;
 using Android.Views;
-using Toolbar = Android.Support.V7.Widget.Toolbar;
-using Android.Content;
-using FinanceManager.Activities;
 using Android.Widget;
-using FinanceManager.ViewModels;
 using Autofac;
+using FinanceManager.Activities;
+using FinanceManager.ViewModels;
+using Toolbar = Android.Support.V7.Widget.Toolbar;
 
 namespace FinanceManager
 {
@@ -36,6 +36,7 @@ namespace FinanceManager
             if (item.ItemId == Resource.Id.menu_add_new_bill)
             {
                 StartActivity(new Intent(this, typeof(CreateBillActivity)));
+                OverridePendingTransition(Resource.Animation.abc_slide_in_top, Resource.Animation.abc_slide_out_bottom);
             }
             else
             {

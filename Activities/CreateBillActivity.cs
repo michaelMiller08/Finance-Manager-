@@ -1,5 +1,6 @@
 ﻿using Android.App;
 using Android.Content;
+using Android.Graphics;
 using Android.OS;
 using Android.Widget;
 using Autofac;
@@ -46,6 +47,13 @@ namespace FinanceManager.Activities
         public override void OnBackPressed()
         {
             StartActivity(new Intent(this, typeof(MainActivity)));
+            OverridePendingTransition(Resource.Animation.abc_slide_in_bottom, Resource.Animation.abc_slide_out_bottom);
+        }
+
+        protected override void OnStop()
+        {
+            FindViewById<Button>(Resource.Id.add_bill_btn).Click -= CreateBillBtn_Click;
+            base.OnStop();
         }
 
         void OccurenceSpinner_ItemSelected(object sender, AdapterView.ItemSelectedEventArgs e)
@@ -59,10 +67,19 @@ namespace FinanceManager.Activities
         {
             if (InputFieldsValidationFailureStatus() == false)
             {
+                var billName = _billNameField?.Text;
                 var billRepository = App.Container.Resolve<IBillRepository>();
                 billRepository.AddBill(_billNameField.Text, _billDescriptionField.Text, float.Parse(_billCostField.Text), _billOccurence);
 
-                DisplayToast(string.Format($"{_billNameField.Text} has been added!"));
+                _billNameField.Text = string.Empty;
+                _billDescriptionField.Text = string.Empty;
+                _billCostField.Text = string.Empty;
+
+                DisplayToast(string.Format($"{billName} has been added!"));
+            }
+            else
+            {
+                DisplayAlert("Fields cannot be empty!", "Error");
             }
         }
 
